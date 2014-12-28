@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ToolBar</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="Titles">
+        <item>Google</item>
+        <item>Facebook</item>
+        <item>Picasa</item>
+        <item>CodeJam</item>
+        <item>Pablo Picaso</item>
+        <item>WhatsApp</item>
+    </string-array>
+    <string-array name="Links">
+        <item>www.google.com</item>
+        <item>www.facebook.com</item>
+        <item>www.picasa.com</item>
+        <item>www.google.com/codejam</item>
+        <item>www.pablo-picaso.org</item>
+        <item>www.whatsapp.com</item>
+    </string-array>
+
+    <array name="Images">
+        <item>@drawable/photo_4</item>
+        <item>@drawable/photo_2</item>
+        <item>@drawable/photo_3</item>
+        <item>@drawable/photo_4</item>
+        <item>@drawable/photo_3</item>
+        <item>@drawable/photo_2</item>
+    </array>
+
+    <string name="title_activity_launched">Launched Activity</string>
+    <string name="title_activity_drawer">Drawer Activity</string>
+
+</resources>
