@@ -1,8 +1,11 @@
 package studios.slick.toolbar;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Outline;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
@@ -12,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -62,6 +66,21 @@ public class LaunchedActivity extends ActionBarActivity {
                 //You can use these palette swatches and RippleDrawable class to dynamically change the colour of the FAB
             }
         });
+
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) {
+            //To make an oval shadow
+            ViewOutlineProvider viewOutlineProvider = new ViewOutlineProvider() {
+                @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+                @Override
+                public void getOutline(View view, Outline outline) {
+                    int diameter = (int) ((getResources().getDisplayMetrics().density * 56) + 0.5f);
+                    outline.setOval(0, 0, diameter, diameter);
+                }
+            };
+            fab.setOutlineProvider(viewOutlineProvider);
+            fab.setClipToOutline(true);
+        }
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,9 +111,6 @@ public class LaunchedActivity extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return id == R.id.action_settings || super.onOptionsItemSelected(item);
     }
 }
