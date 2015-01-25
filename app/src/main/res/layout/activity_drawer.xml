@@ -46,6 +46,7 @@
     <RelativeLayout
         android:id="@+id/rel_drawer"
         android:layout_width="304dp"
+        android:clickable="true"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         >
