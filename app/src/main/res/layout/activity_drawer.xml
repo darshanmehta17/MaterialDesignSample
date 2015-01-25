@@ -1,5 +1,6 @@
 <android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,6 +11,30 @@
     <include layout="@layout/toolbar"
         android:id="@+id/mytoolbardrawer"
         />
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btn_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@id/mytoolbardrawer"/>
+
+    <Button
+        android:id="@+id/btn_sign_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout from Google+"
+        android:visibility="gone"
+        android:layout_below="@id/btn_sign_in"
+        android:layout_marginBottom="10dp" />
+    <Button
+        android:id="@+id/btn_revoke_access"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Revoke Access"
+        android:visibility="gone"
+        android:layout_below="@id/btn_sign_out"
+        android:layout_marginBottom="10dp" />
+
     <FrameLayout
         android:id="@+id/frame_container"
         android:layout_width="match_parent"
@@ -27,12 +52,46 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="171dp"
-            android:id="@+id/img_drawer"
+            android:id="@+id/img_bg"
             android:scaleType="centerCrop"
-            android:src="@drawable/photo_4"/>
+            android:src="@drawable/photo_3"/>
+        <studios.slick.toolbar.RoundedImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/img_dp"
+            android:scaleType="centerCrop"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_alignTop="@id/img_bg"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:background="@drawable/grad_2"
+            android:layout_alignBottom="@id/img_bg">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tVName"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tVEmail"
+                android:textColor="#a0b2b2b2"
+                android:textSize="14sp"/>
+
+            </LinearLayout>
         <ListView
             android:id="@+id/list_slidermenu"
-            android:layout_below="@id/img_drawer"
+            android:layout_below="@id/img_bg"
             android:layout_width="304dp"
             android:listSelector="@drawable/list_selector"
             android:checkable="true"
